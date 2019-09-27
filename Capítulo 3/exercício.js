@@ -110,7 +110,7 @@ console.table(uniqueNumber)
  * Para isto, utilize o método filter.
  */
 const alunos = [
-    { nome: 'Diogo', media: 5.5 },
+    { nome: 'Diogo', media: 5.6 },
     { nome: 'Julia', media: 9.5 },
     { nome: 'Roberto', media: 1.5 },
     { nome: 'Tiago', media: 6.0 }
