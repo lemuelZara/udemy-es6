@@ -82,7 +82,7 @@ function criaIterator(array) {
             } else {
                 return {
                     value: undefined,
-                    done: true
+                    done: true 
                 }
             }
         }
