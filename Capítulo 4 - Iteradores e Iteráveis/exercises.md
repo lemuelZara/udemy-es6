@@ -89,5 +89,5 @@ function criaIterator(array) {
     }
 }
 
-console.log(criaIterator(numbers).next())
+console.log(criaIterator(numbers).next()) 
 ````
