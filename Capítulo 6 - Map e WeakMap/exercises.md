@@ -9,13 +9,18 @@ Crie um método chamado `possuiProduto` que recebe dois parâmetros:
 
 Faça com o método retorne `true` caso o produto esteja contido no mapa, caso contrário, devolva `false`.
 
-Considere o mapa a seguir:
 ``` javascript
-var produtos = new Map();
+const produtos = new Map();
 produtos.set('Arroz', 7.10);
 produtos.set('Feijão', 2.30);
 produtos.set('Macarrão', 4.70);
 produtos.set('Refrigerante', 3.00);
+
+possuiProduto = (produto, produtoDesejado) => {
+    return produto.has(produtoDesejado)
+}
+
+console.log(possuiProduto(produtos, 'Batata'))
 ```
 
 ## Exercício 2 - Comprinhas online
@@ -46,6 +51,30 @@ Fretes:
 |Outros|13.00|
 
 * Exemplo: calculaValorTotalDaCompra(['Arroz'], 'São Paulo', caixa, fretes) → 7.20
+````javascript
+const caixa = new Map()
+caixa.set('Arroz', 7.10)
+caixa.set('Feijão', 2.30)
+caixa.set('Macarrão', 4.70)
+caixa.set('Refrigerante', 3.00)
+
+const fretes = new Map()
+fretes.set('São Paulo', 10.10)
+fretes.set('Rio de Janeiro', 12.30)
+fretes.set('Brasília', 14.70)
+fretes.set('Outros', 13.00)
+
+calculaCompra = (produtos, cidade, caixa, fretes) => {
+    let somaCompra = 0;
+
+    for (const iterator of produtos) {
+        somaCompra += caixa.get(iterator)
+    }
+    somaCompra += fretes.get(cidade)
+
+    return somaCompra
+}
+````
 
 ## Exercício 3 - Não sei qual algoritmo usar hoje
 Em que situações devemos usar uma implementação de `Map` ao invés de uma implementação de objeto literal?
@@ -72,3 +101,22 @@ Amigos:
 |Luisa Pimenta|idade: 18, sexo: feminino|
 |Julio Marinho|idade: 52, sexo: masculino|
 |Marcela Mel|idade: 27, sexo: feminino|
+````javascript
+const amigos = new Map()
+amigos.set('João Silva', { idade: 23, sexo: 'masculino' })
+amigos.set('Luisa Pimenta', { idade: 18, sexo: 'feminino' })
+amigos.set('Julio Marinho', { idade: 52, sexo: 'masculino' })
+amigos.set('Marcela Mel', { idade: 27, sexo: 'feminino' })
+
+deletaAmigos = (amigos, exAmigos) => {
+    for (const exAmigo of exAmigos) {
+        if (amigos.has(exAmigo)) {
+            amigos.delete(exAmigo)
+            console.log(`${exAmigo} foi excluído da lista`)
+        } else {
+            console.log(`${exAmigo} não é seu amigo`)
+        }
+    }
+}
+deletaAmigos(amigos, ['João Silva', 'Luisa Pimenta', 'Lemuel'])
+````
