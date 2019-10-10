@@ -92,6 +92,25 @@ Implemente o método `criaObjetoComCaracteristicas` quer recebe o seguinte parâ
 - caracteristicas: Mapa que representa os atributos e valores do objeto (Ex: idade, 25)
 
 O método deve devolver um objeto literal que possua as características representadas no mapa. Para este exercício, não vamos considerar funções.
+```javascript
+const object = new Map()
+object.set('nome', 'Lemuel')
+object.set('idade', 25)
+
+criaObjetoComCaracteristicas = (carac) => {
+    const newObject = {}
+
+    for (const key of carac.keys()) {
+        newObject[key] = carac.get(key) // Retorna o valor da 'Key'
+    }
+
+    return newObject
+}
+
+console.table(criaObjetoComCaracteristicas(object))
+```
 
 ## Exercício 5 - Esse tal de JSON
-Responda: O que é um JSON?
+#### Responda: O que é um JSON?
+
+O JavaScript Object Notation (JSON) é um formato leve, criado como subconjunto da notação de objetos literais do JavaScript, para troca de dados. Originalmente criado por Douglas Crockford, o formato que é reconhecido devido a sua simplicidade e flexibilidade, não é usado somente no JavaScript, mas na maior parte das linguagens de programação voltadas para web. Ele é muito semelhante a um objeto literal e devido a sua simplicidade, tem sido usado por muitas empresas para criar APIs REST.
