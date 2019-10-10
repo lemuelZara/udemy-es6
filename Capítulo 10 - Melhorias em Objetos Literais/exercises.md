@@ -23,6 +23,20 @@ var busao = {
 
 busao.acelerar(); // vrum vrum
 ```
+```javascript
+var modelo = 'Mercedes-Benz Monobloco O-371 RSL';
+var ano = 1993;
+var capacidade = 50;
+
+var busao = {
+    modelo,
+    ano,
+    capacidade,
+    acelerar() {
+        console.log('vrum vrum');
+    }
+}
+```
 
 ## Exercício 2 - Corta isso fora
 Refatore o código abaixo com o que foi aprendido até agora.
@@ -33,6 +47,17 @@ var dimensoes = function(comprimento, alturaInicial) {
 }
 
 console.log(dimensoes(10,10)); // { comprimento: 10, altura: 5.625 }
+```
+```javascript
+const dimensoes = (comp, alturaInicial) => {
+    const altura = alturaInicial * 9 / 16;
+    return {
+        comp,
+        altura
+    }
+}
+
+console.log(dimensoes(10, 10)); 
 ```
 
 ## Exercício 3 - Oi, eu sou o Goku!
@@ -49,6 +74,17 @@ function seApresentar(pessoa) {
 }
 
 seApresentar(pessoa); // Oi, eu sou o Goku!
+```
+```javascript
+const pessoa = {
+    nome: 'Goku',
+    equipe: 'Guerreiro Z',
+    seApresentar() {
+        console.log(`Oi, eu sou o ${this.nome}!`)
+    }
+}
+
+pessoa.seApresentar()
 ```
 
 ## Exercício 4 - Criando à minha maneira
