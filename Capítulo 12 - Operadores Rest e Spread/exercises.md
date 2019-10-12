@@ -18,8 +18,7 @@ calculaPrecoTotal(1,2,3,4,5); // 15
 ```
 ```javascript
 function calculaPrecoTotal(...parameters) {
-    let precos = [...parameters];
-    return precos.reduce(function (total, preco) {
+    return parameters.reduce(function (total, preco) {
         return total + preco;
     }, 0)
 }
@@ -64,16 +63,12 @@ anunciaBolasSorteadas(1,2,3);
 ```
 ```javascript
 function anunciaBolasSorteadas(...bolas) {
-    return [...bolas].forEach(element => {
+    return bolas.forEach(element => {
         console.log(`A bola escolhida foi: ${element}`)
     })
 }
 
-anunciaBolasSorteadas(1, 2, 3);
-  // saída
-  // A bola escolhida foi: 1
-  // A bola escolhida foi: 2
-  // A bola escolhida foi: 3
+anunciaBolasSorteadas(24, 3, 9);
 ```
 
 ## Exercício 4 - Mas o professor que ensinou assim!
@@ -84,11 +79,15 @@ function numerosELetras(...numeros, ...letras){
   // corpo da função
 }
 
-Explique o porque este código não funciona.
+// Explique o porque este código não funciona.
 ```
+
+> O operador sempre interpreta as últimas variáveis passadas na função para compactá-las em um único Array. Apesar de a separação parecer fazer sentido para o aluno, não funcionará como esperado. 
 
 ## Exercício 5 - Este sim saber argumentar
 O que é o objeto `arguments`?
+
+> Este objeto está disponível dentro de todas as funções construídas no JavaScript. Ele contém um registro para cada argumento passado para a função no contexto de sua execução, sendo que o primeiro índice de registro começa no índice 0.
 
 ## Exercício 6 - Hora do ditado
 Refatore o código a seguir para utilizar o operador `Spread` no método `log` do console.
@@ -110,6 +109,34 @@ Qual a diferença básica entre os operadores `Rest` e `Spread`?
 
 ## Exercício 8 - Contador de Vogais
 Implemente o método `contaQuantidadeVogaisNaoAcentuadas` que recebe um número indeterminado de palavras e retorna para o usuário o número total de vogais não acentuadas encontradas. Para este exercício, Considere somente palavras em minúsculo.
+```javascript
+function contaQtdVogais(...palavras) {
+
+    // Converto essa string em um Array pra poder usar o 
+    // método filter()
+    return Array.from(palavras
+
+        // O reduce() irá retornar uma string contendo todos os
+        // argumentos declarados na função:
+        // ('lemuel', 'arroz') -> lemuelarroz
+        .reduce((total, element) => total + element, '')
+
+        // Pego essa string e deixo ela em minúscula
+        .toLowerCase())
+
+        // Aplico o método filter para encontrar quais elementos
+        // do Array são vogais
+        .filter(element => {
+            return 'a, e, i, o, u'.indexOf(element) != -1
+        })
+
+        // Apresento a quantidade de elementos que foram retornados
+        .length
+}
+
+console.log(contaQtdVogais('bATAta', 'dadas'))
+console.log(contaQtdVogais('lEmuel'))
+```
 
 
 ## Exercício 9 - Esse jeito é tão ultrapassado...
