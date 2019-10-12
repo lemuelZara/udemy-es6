@@ -5,6 +5,8 @@ Nestes exercícios vamos revisar como o desestruturamento de objetos funciona.
 ## Exercício 1 - Desestruturando a definição
 De forma resumida, defina o que é o desestruturamento.
 
+> Consiste em extrair dados de Objetos e `Arrays`
+
 ## Exercício 2 - Pegando a propriedade na lata
 Refatore o trecho de código a seguir para utilizar a técnica de desestruturamento.
 
@@ -12,6 +14,15 @@ Refatore o trecho de código a seguir para utilizar a técnica de desestruturame
 const email = usuario.email;
 const nome = usuario.nome;
 const idade = usuario.idade
+```
+```javascript
+const usuario = {
+    nome: 'Lemuel',
+    email: 'lemuel.zara@aluno.ifsp.edu.br',
+    idade: 19
+}
+
+const {nome, email, idade} = usuario
 ```
 
 ## Exercício 3 - Não gostei desse nome não
@@ -22,6 +33,9 @@ const usuario = {
   nome: 'Toreto',
   email: 'velozesefuriososparasempre@gmail.com'
 }
+```
+```javascript
+const {nome: nick, email: login} = usuario
 ```
 
 ## Exercício 4 - Minha mãe mandou eu escolher esse daqui...
@@ -44,6 +58,10 @@ const contatos = [
 ```
 
 Utilizando a técnica de desestruturamento de arrays, obtenha somente os dados do segundo contato.
+``` javascript
+const [, {nome, numero}] = contatos
+console.log(nome, numero)
+```
 
 ## Exercício 5 - Cara-Crachá
 Otimize o trecho de código a seguir utilizando o desestruturamento.
@@ -64,6 +82,11 @@ isEngenheiro(profissional); // true
 profissional.titulo = 'Marketing';
 isEngenheiro(profissional); // false
 ```
+``` javascript
+function isEngenheiro({ titulo, departamento }) {
+    return titulo.indexOf("Engenheiro") > -1 && departamento === 'Engenharia'
+}
+```
 
 ## Exercício 6 - Mas o que são estes dados!?
 O seu sistema escolar contém uma série de informações armazenadas em arrays no seguinte formato:
@@ -81,6 +104,13 @@ Para o usuário final, é necessário que a informação seja apresentada de uma
 ``` javascript
 "Aula de <matéria> às <hora> com professor(a) <nome>"
 ```
+```javascript
+function mostraGradeProfessores(array) {
+    return array.forEach(([materia, hora, nome]) => {
+        console.log(`Aula de ${materia} às ${hora} com professor(a) ${nome}`)
+    })
+}
+```
 
 ## Exercício x - Converta do modelo 1 para o modelo 2 utilizando desestruturamento de objetos e arrays.
 ``` javascript
@@ -97,4 +127,22 @@ const pontos = [
   {x:3, y:4},
   {x:5, y:6},
 ]
+```
+``` javascript
+const pontos = [
+    [1, 2],
+    [3, 4],
+    [5, 6]
+]
+
+const newPontos = pontos.reduce((total, [parX, parY]) => {
+    total.push(
+        {
+            x: parX,
+            y: parY
+        }
+    )
+
+    return total
+}, [])
 ```
