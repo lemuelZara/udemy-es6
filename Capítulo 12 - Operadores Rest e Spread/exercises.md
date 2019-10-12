@@ -16,6 +16,16 @@ function calculaPrecoTotal(a, b, c, d, e) {
 
 calculaPrecoTotal(1,2,3,4,5); // 15
 ```
+```javascript
+function calculaPrecoTotal(...parameters) {
+    let precos = [...parameters];
+    return precos.reduce(function (total, preco) {
+        return total + preco;
+    }, 0)
+}
+
+console.log(calculaPrecoTotal(1, 2, 3, 4, 5)); // 15
+```
 
 ## Exercício 2 - Eu sou maior do que você, lero lero!
 Utilize o operador Rest para criar uma função que recebe um parâmetro referência, que é obrigatório, e mais n parâmetros numéricos. O objetivo é que esta função calcule se todos os valores numéricos passados são maiores que a referência e retorne verdadeiro ou falso.
@@ -26,6 +36,14 @@ todosSaoMaioresQue(2,3,4,5,6,7); // resultado esperado: true
 Outros exemplos de entradas:
 todosSaoMaioresQue(5,4,3,2,1); // resultado esperado: false
 todosSaoMaioresQue(1,2); // resultado esperado: true
+```javascript
+function todosSaoMaioresQue(paramRef, ...numbers) {
+    return [...numbers].every(element => element > paramRef)
+}
+
+console.log(todosSaoMaioresQue(1, 2)) // -> true
+console.log(todosSaoMaioresQue(10, 2, 30)) // -> false
+```
 
 ## Exercício 3 - Bingo!
 Refatore o código abaixo para utilizar o operador Rest ao invés do `arguments`
@@ -43,6 +61,19 @@ anunciaBolasSorteadas(1,2,3);
 // A bola escolhida foi: 1
 // A bola escolhida foi: 2
 // A bola escolhida foi: 3
+```
+```javascript
+function anunciaBolasSorteadas(...bolas) {
+    return [...bolas].forEach(element => {
+        console.log(`A bola escolhida foi: ${element}`)
+    })
+}
+
+anunciaBolasSorteadas(1, 2, 3);
+  // saída
+  // A bola escolhida foi: 1
+  // A bola escolhida foi: 2
+  // A bola escolhida foi: 3
 ```
 
 ## Exercício 4 - Mas o professor que ensinou assim!
