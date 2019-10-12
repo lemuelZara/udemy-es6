@@ -147,9 +147,14 @@ var argumentos = [1,2,3];
 console.log(argumentos[0], argumentos[1], argumentos[2]);
 // 1, 2, 3
 ```
+```javascript
+const argumentos = [2, 4, 3]
+
+console.log(...argumentos)
+```
 
 ## Exercício 10 - A união faz a força
-Refatore o código a seguir para utilizar o operador `Spread` ao invés do método `concat`.
+Refatore o código a seguir para utilizar o operador `spread` ao invés do método `concat`.
 
 ``` javascript
 const equipeMarketing = ['Joana', 'Marcela', 'Bruna'];
@@ -157,5 +162,13 @@ const equipeComercial = ['Talita', 'Luisa', 'Vitória'];
 
 const timeCompleto = equipeMarketing.concat(equipeComercial);
 
-realizaBrainstorm(timeCompleto);
+console.log(timeCompleto);
+```
+```javascript
+const equipeMarketing = ['Joana', 'Marcela', 'Bruna'];
+const equipeComercial = ['Talita', 'Luisa', 'Vitória'];
+
+const timeCompleto = [...equipeMarketing, ...equipeComercial];
+
+console.log(timeCompleto);
 ```
