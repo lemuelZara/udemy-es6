@@ -96,9 +96,16 @@ Refatore o código a seguir para utilizar o operador `Spread` no método `log` d
 ``` javascript
 console.log('e','c','m','a','s','c','r','i','p','t');
 ```
+```javascript
+const letras = ['e', 'c', 'm', 'a', 's', 'c', 'r', 'i', 'p', 't']
+console.log(...letras);
+```
 
 ## Exercício 7 - Não são só umas reticências?
 Qual a diferença básica entre os operadores `Rest` e `Spread`?
+
+* O operador Rest coleta os itens e coloca-os em um Array;
+* O operador Spread torna um Array (e outros objetos iteráveis) em itens individuais.
 
 
 ## Exercício 8 - Contador de Vogais
