@@ -42,7 +42,7 @@ class PlayStation extends VideoGame {
         super(marca, nControles, tipoMidia)
         this.nEntradaUSB = nEntradaUSB
         this.volt = volt
-        this.adicionais = [adicionais]
+        this.adicionais = adicionais
     }
 }
 
